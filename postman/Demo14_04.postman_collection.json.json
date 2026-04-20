@@ -1,0 +1,91 @@
+{
+  "info": {
+    "_postman_id": "0db3569c-5a8b-40c7-9892-f751efa0d628",
+    "name": "Demo14_04",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9578175"
+  },
+  "item": [
+    {
+      "name": "CreateUser",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"test2222@gmail.com\",\r\n    \"name\": \"hansmohammed\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{userUrl}}/api/Users",
+          "host": [
+            "{{userUrl}}"
+          ],
+          "path": [
+            "api",
+            "Users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreatePayment",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{paymentUrl}}/api/Payments",
+          "host": [
+            "{{paymentUrl}}"
+          ],
+          "path": [
+            "api",
+            "Payments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateOrder",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{OrderUrl}}/api/Orders",
+          "host": [
+            "{{OrderUrl}}"
+          ],
+          "path": [
+            "api",
+            "Orders"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
