@@ -1,0 +1,26 @@
+{
+  "info": {
+    "_postman_id": "60143b55-5cdc-4a2f-acb4-a38486ea7768",
+    "name": "simplecollection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9578175"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "get User",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
