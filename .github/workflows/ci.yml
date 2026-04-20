@@ -1,1 +1,56 @@
+# .github/workflows/api-ci.yml
+name: API Integration Tests
 
+on:
+  push:
+  pull_request:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repo
+      - uses: actions/checkout@v4
+
+      # 2. Setup .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x # match your .NET version
+
+      # 3. Setup Node (for Newman)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 4. Install Newman globally
+      - name: Install Newman
+        run: npm install -g newman
+      - name: Debug directory
+        run: |
+          pwd
+          ls -la
+      # 5. Build the entire solution
+      - name: Build Solution
+        run: dotnet build ShoppingMicroServicesApp.sln --configuration Release
+
+      - name: Start Web APIs
+        run: |
+          echo "Starting UsersWebAPI..."
+          dotnet run --project UsersWebAPI/UsersWebAPI.csproj &
+
+          echo "Starting OrdersWebAPI..."
+          dotnet run --project OrdersWebAPI/OrdersWebAPI.csproj &
+
+          echo "Starting PaymentsWebAPI..."
+          dotnet run --project PaymentsWebAPI/PaymentsWebAPI.csproj &
+
+          echo "Waiting for APIs to start..."
+          sleep 20  # adjust depending on how long your APIs take to start
+
+      - name: Run Newman Tests
+        run: |
+         npm install -g newman
+         newman run postman/simplecollection.postman_collection.json 
