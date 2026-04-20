@@ -50,15 +50,16 @@ jobs:
           echo "Waiting for APIs to start..."
           sleep 20  # adjust depending on how long your APIs take to start
 
-      - name: Run Newman Tests
+     # - name: Run Newman Tests
         
      #   run: |
      #    npm install -g newman
       #   newman run postman/simplecollection.postman_collection.json \
       #   --reporters cli,junit \
        #  --reporter-junit-export newman-report.xml
-        
-      - run: |
+      
+      - name: Run Newman Tests
+        run: |
           npm install -g newman
           newman run postman/simplecollection.postman_collection.json \
           --environment postman/environment.json \
