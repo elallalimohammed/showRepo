@@ -52,8 +52,15 @@ jobs:
 
       - name: Run Newman Tests
         
-        run: |
-         npm install -g newman
-         newman run postman/simplecollection.postman_collection.json \
-         --reporters cli,junit \
-         --reporter-junit-export newman-report.xml
+     #   run: |
+     #    npm install -g newman
+      #   newman run postman/simplecollection.postman_collection.json \
+      #   --reporters cli,junit \
+       #  --reporter-junit-export newman-report.xml
+        
+      - run: |
+          npm install -g newman
+          newman run postman/simplecollection.postman_collection.json \
+          --environment postman/environment.json \
+          --reporters cli,junit \
+          --reporter-junit-export newman-report.xml
