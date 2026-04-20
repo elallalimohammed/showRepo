@@ -53,5 +53,4 @@ jobs:
       - name: Run Newman Tests
         run: |
          npm install -g newman
-         newman run postman/Demo14_04.postman_collection.json \
-         -e postman/14_04demo.postman_environment.json
+         newman run postman/simplecollection.postman_collection.json 
