@@ -34,7 +34,7 @@ jobs:
           ls -la
       # 5. Build the entire solution
       - name: Build Solution
-        run: dotnet build ShoppingWith3WebAPIs.sln --configuration Release
+        run: dotnet build ShoppingMicroServiceSApp.sln --configuration Release
 
       - name: Start Web APIs
         run: |
