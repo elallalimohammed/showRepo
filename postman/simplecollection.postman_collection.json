@@ -1,26 +1,37 @@
 {
-  "info": {
-    "_postman_id": "60143b55-5cdc-4a2f-acb4-a38486ea7768",
-    "name": "simplecollection",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "9578175"
-  },
-  "item": [
-    {
-      "name": "Create User",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
-    },
-    {
-      "name": "get User",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
-    }
-  ]
+"info": {
+"_postman_id": "60143b55-5cdc-4a2f-acb4-a38486ea7768",
+"name": "simplecollection",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+"_exporter_id": "9578175"
+},
+"item": [
+{
+"name": "Create User",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+}
+],
+"url": "http://localhost:5064/api/Users",
+"body": {
+"mode": "raw",
+"raw": "{ "name": "John Doe" }"
+}
+},
+"response": []
+},
+{
+"name": "Get User",
+"request": {
+"method": "GET",
+"header": [],
+"url": "http://localhost:5064/api/Users/1"
+},
+"response": []
+}
+]
 }
