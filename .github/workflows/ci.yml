@@ -50,3 +50,8 @@ jobs:
           echo "Waiting for APIs to start..."
           sleep 20  # adjust depending on how long your APIs take to start
 
+      - name: Run Newman Tests
+        run: |
+         npm install -g newman
+         newman run postman/Demo14_04.postman_collection.json \
+         -e postman/14_04demo.postman_environment.json
