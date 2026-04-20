@@ -19,7 +19,7 @@
 "url": "http://localhost:5064/api/Users",
 "body": {
 "mode": "raw",
-"raw": "{ "name": "John Doe" }"
+"raw": "{ \"name\": \"John Doe\" }"
 }
 },
 "response": []
